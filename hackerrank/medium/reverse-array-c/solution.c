@@ -1,23 +1,22 @@
 #include <stdio.h>
-#include <string.h>
-#include <math.h>
 #include <stdlib.h>
 
 int main() {
-    int a, b;
-    float x, y;
-    
-    // Read two integers
-    scanf("%d %d", &a, &b);
-    
-    // Read two floating-point numbers
-    scanf("%f %f", &x, &y);
-    
-    // Print the sum and difference of integers separated by a space
-    printf("%d %d\n", a + b, a - b);
-    
-    // Print the sum and difference of floats rounded to one decimal place
-    printf("%.1f %.1f\n", x + y, x - y);
-    
+    int num, *arr, i;
+    scanf("%d", &num);
+    arr = (int*) malloc(num * sizeof(int));
+    for(i = 0; i < num; i++) {
+        scanf("%d", arr + i);
+    }
+
+    /* Write the logic to reverse the array. */
+    for (int i = 0; i < num / 2; i++) {
+        int temp = *(arr + i);
+        *(arr + i) = *(arr + num - 1 - i);
+        *(arr + num - 1 - i) = temp;
+    }
+
+    for(i = 0; i < num; i++)
+        printf("%d ", *(arr + i));
     return 0;
 }
