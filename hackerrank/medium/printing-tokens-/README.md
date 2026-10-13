@@ -1,4 +1,4 @@
-# Array Reversal
+# Printing Tokens
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -23,29 +23,30 @@ Print each word of the sentence in a new line.
 **Language:** C  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-10T13:47:26.997Z  
+**Submitted:** 2026-10-10T13:48:46.189Z  
 
 ```c
 #include <stdio.h>
+#include <string.h>
+#include <math.h>
 #include <stdlib.h>
 
 int main() {
-    int num, *arr, i;
-    scanf("%d", &num);
-    arr = (int*) malloc(num * sizeof(int));
-    for(i = 0; i < num; i++) {
-        scanf("%d", arr + i);
+    char *s;
+    s = malloc(1024 * sizeof(char));
+    scanf("%[^\n]", s);
+    s = realloc(s, strlen(s) + 1);
+    
+    //Write your logic to print the tokens of the sentence here.
+    for (int i = 0; s[i] != '\0'; i++) {
+        if (s[i] == ' ') {
+            printf("\n");
+        } else {
+            printf("%c", s[i]);
+        }
     }
-
-    /* Write the logic to reverse the array. */
-    for (int i = 0; i < num / 2; i++) {
-        int temp = *(arr + i);
-        *(arr + i) = *(arr + num - 1 - i);
-        *(arr + num - 1 - i) = temp;
-    }
-
-    for(i = 0; i < num; i++)
-        printf("%d ", *(arr + i));
+    printf("\n");
+    
     return 0;
 }
 
