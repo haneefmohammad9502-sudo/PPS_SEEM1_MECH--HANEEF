@@ -5,12 +5,26 @@
 
 int main() 
 {
+    char ch;
     char s[100];
-    scanf("%[^\n]%*c", &s);
-      
-    /* Enter your code here. Read input from STDIN. Print output to STDOUT */    
-    printf("Hello, World!\n");
+    char sen[100];
+
+    // Read the character
+    scanf("%c", &ch);
+    
+    // Read the single-word string
+    scanf("%s", s);
+    
+    // Consume the leftover newline character before reading the sentence
+    scanf("\n");
+    
+    // Read the sentence (including spaces)
+    scanf("%[^\n]%*c", sen);
+
+    // Print the outputs
+    printf("%c\n", ch);
     printf("%s\n", s);
+    printf("%s\n", sen);
     
     return 0;
 }
