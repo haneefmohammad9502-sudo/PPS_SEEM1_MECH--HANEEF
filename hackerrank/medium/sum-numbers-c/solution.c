@@ -3,9 +3,8 @@
 #include <math.h>
 #include <stdlib.h>
 
-int main()
-{
-	int a, b;
+int main() {
+    int a, b;
     float x, y;
     
     // Read two integers
