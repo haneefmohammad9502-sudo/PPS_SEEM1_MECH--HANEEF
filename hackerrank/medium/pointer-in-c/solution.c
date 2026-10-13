@@ -1,30 +1,23 @@
 #include <stdio.h>
+#include <stdlib.h> // Required for abs()
 
-int max_of_four(int a, int b, int c, int d)
-{
-    int max = a;
-
-    if (b > max)
-        max = b;
-
-    if (c > max)
-        max = c;
-
-    if (d > max)
-        max = d;
-
-    return max;
+void update(int *a,int *b) {
+    // Store the original values temporarily to compute sum and absolute difference
+    int sum = *a + *b;
+    int abs_diff = abs(*a - *b);
+    
+    // Update the values at the pointers
+    *a = sum;
+    *b = abs_diff;
 }
 
-int main()
-{
-    int a, b, c, d;
-
-    scanf("%d %d %d %d", &a, &b, &c, &d);
-
-    int ans = max_of_four(a, b, c, d);
-
-    printf("%d", ans);
+int main() {
+    int a, b;
+    int *pa = &a, *pb = &b;
+    
+    scanf("%d %d", &a, &b);
+    update(pa, pb);
+    printf("%d\n%d", a, b);
 
     return 0;
 }
